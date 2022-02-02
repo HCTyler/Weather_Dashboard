@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Weather Dashboard</title>
+</head>
+<body>
+    <header class="container-fluid text-center text-white bg-dark p-2">
+        <h1>Weather Dashboard</h1>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- This is the Search Area -->
+            <aside class="col-lg-3 bg-light">
+                <h2>Search for a City:</h2>
+                <form class="input-group mb-3">
+                    <input type="text" class="form-control" id="cityInput" placeholder="Please enter a city...">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary" id="seachButton"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    </div>
+                </form>
+                <!-- Have this populate with the search results -->
+                <form id="searchHistory"></form>
+                <!-- hide the button until searchHistory gets populated (remove d-none), button acts as an overall clear button-->
+                <button class="btn btn-primary mb-3 d-none" type="button" id="clearButton">Clear All</button>
+            </aside>
+            
+            <!-- This is the Result Area, hide this until search populates (remove "d-none") -->
+            <main class="col-lg-9">
+                <div class="row ms-5">
+                    <div class="col-lg-11 card" id="weather">
+                        <div class="card-body">
+                            <h3 class="align-middle">Seattle</h3>
+                        </div>
+                    </div>
+                    <div class="row" id="forcast">
+                        <div class="col-12">
+                            <h3>5-day forcast for: </h3><h3 class="cityName"></h3>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- moment.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <!-- Custom Script -->
+    <script src="./assets/js/script.js"></script>
+
+</body>
+</html>
