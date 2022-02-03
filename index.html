@@ -24,7 +24,7 @@
                 <form class="input-group mb-3">
                     <input type="text" class="form-control" id="cityInput" placeholder="Please enter a city...">
                     <div class="input-group-append">
-                        <button type="submit" class="btn btn-primary" id="seachButton"><i class="fa fa-search" aria-hidden="true"></i></button>
+                        <button type="submit" class="btn btn-primary" id="searchButton"><i class="fa fa-search" aria-hidden="true"></i></button>
                     </div>
                 </form>
                 <!-- Have this populate with the search results -->
@@ -35,17 +35,14 @@
             
             <!-- This is the Result Area, hide this until search populates (remove "d-none") -->
             <main class="col-lg-9">
-                <div class="row ms-5">
-                    <div class="col-lg-11 card" id="weather">
-                        <div class="card-body">
-                            <h3 class="align-middle">Seattle</h3>
-                        </div>
+                <div class="row ms-5" id="weatherContainer">
+
+                    <div class="col-lg-11 card d-none" id="weather">
                     </div>
-                    <div class="row" id="forcast">
-                        <div class="col-12">
-                            <h3>5-day forcast for: </h3><h3 class="cityName"></h3>
-                        </div>
+
+                    <div class="row ms-5 border-rounded d-none" id="forcast">
                     </div>
+
                 </div>
             </main>
 
