@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Weather Dashboard</title>
 </head>
+
 <body>
     <header class="container-fluid text-center text-white bg-dark p-2">
         <h1>Weather Dashboard</h1>
@@ -24,23 +25,23 @@
                 <form class="input-group mb-3">
                     <input type="text" class="form-control" id="cityInput" placeholder="Please enter a city...">
                     <div class="input-group-append">
-                        <button type="submit" class="btn btn-primary" id="searchButton"><i class="fa fa-search" aria-hidden="true"></i></button>
+                        <button type="button" class="btn btn-primary" id="searchButton"><i class="fa fa-search" aria-hidden="true"></i></button>
                     </div>
                 </form>
                 <!-- Have this populate with the search results -->
                 <form id="searchHistory"></form>
                 <!-- hide the button until searchHistory gets populated (remove d-none), button acts as an overall clear button-->
-                <button class="btn btn-primary mb-3 d-none" type="button" id="clearButton">Clear All</button>
+                <button class="btn btn-primary mb-3" type="button" id="clearButton">Clear All</button>
             </aside>
             
             <!-- This is the Result Area, hide this until search populates (remove "d-none") -->
             <main class="col-lg-9">
                 <div class="row ms-5" id="weatherContainer">
 
-                    <div class="col-lg-11 card d-none" id="weather">
+                    <div class="col-lg-11 card" id="weather">
                     </div>
 
-                    <div class="row ms-5 border-rounded d-none" id="forcast">
+                    <div class="row ms-5 border-rounded" id="forcast">
                     </div>
 
                 </div>
