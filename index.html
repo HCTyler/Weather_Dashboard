@@ -22,19 +22,19 @@
             <!-- This is the Search Area -->
             <aside class="col-lg-3 bg-light">
                 <h2>Search for a City:</h2>
-                <form class="input-group mb-3" id="form">
-                    <input type="text" class="form-control" id="cityInput" placeholder="Please enter a city...">
+                <form class="input-group mb-3" id="formInput">
+
+                    <input type="text" class="form-control" id="cityInput" placeholder="San Diego" aria-labelledby="form-heading"
+                    aria-controls="today forecast">
+
                     <div class="input-group-append">
-                        <button type="button" class="btn btn-primary" id="searchButton"><i class="fa fa-search" aria-hidden="true"></i></button>
+                        <button type="submit" class="btn btn-primary" id="searchButton" aria-label="submit search"><i class="fa fa-search" aria-hidden="true"></i></button>
                     </div>
                 </form>
-                <!-- Have this populate with the search results -->
                 <form id="searchHistory"></form>
-                <!-- hide the button until searchHistory gets populated (remove d-none), button acts as an overall clear button-->
                 <button class="btn btn-primary mb-3" type="button" id="clearButton">Clear All</button>
             </aside>
             
-            <!-- This is the Result Area, hide this until search populates ) -->
             <main class="col-lg-9">
                 <div class="mt-3" id="weatherToday">
                 </div>
@@ -47,14 +47,21 @@
         </div>
     </div>
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <!-- moment.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <!-- Custom Script -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js"
+      integrity="sha512-0fcCRl828lBlrSCa8QJY51mtNqTcHxabaXVLPgw/jPA5Nutujh6CbTdDgRzl9aSPYW/uuE7c4SffFUQFBAy6lg=="
+      crossorigin="anonymous"
+    ></script>
+    <script 
+      src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/plugin/utc.min.js" 
+      integrity="sha512-m00bfmYnAl3plEBlQfeQUhw/U2uvmw29V2+jxSWpAjankMWS+zAsjezbKWDEJNXqWq9o9qQZSOiA2RKDpa4D5w==" 
+      crossorigin="anonymous"
+    ></script>
+    <script 
+      src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/plugin/timezone.min.js" 
+      integrity="sha512-pslqxxHAYPCxaSeFSmXXxDkLejD5dbFVC66aiVq0z4v7VTJBU+wqcG1OpNh4p3MjS2D6NCwz/H2QmSc7dXxryg==" 
+      crossorigin="anonymous"
+    ></script>
     <script src="./assets/js/script.js"></script>
 
 </body>
