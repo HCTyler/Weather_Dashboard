@@ -5,7 +5,6 @@ var cityInput= document.getElementById("cityInput")
 var searchButton= document.getElementById("searchButton")
 var searchHistory= document.getElementById("searchHistory")
 var clearButton= document.getElementById("clearButton")
-var weatherContainer= document.getElementById("weatherContainer")
 var weather= document.getElementById("weather")
 var forcast= document.getElementById("forcast")
 var searchedCity=[]
