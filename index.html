@@ -22,7 +22,7 @@
             <!-- This is the Search Area -->
             <aside class="col-lg-3 bg-light">
                 <h2>Search for a City:</h2>
-                <form class="input-group mb-3">
+                <form class="input-group mb-3" id="form">
                     <input type="text" class="form-control" id="cityInput" placeholder="Please enter a city...">
                     <div class="input-group-append">
                         <button type="button" class="btn btn-primary" id="searchButton"><i class="fa fa-search" aria-hidden="true"></i></button>
@@ -34,29 +34,12 @@
                 <button class="btn btn-primary mb-3" type="button" id="clearButton">Clear All</button>
             </aside>
             
-            <!-- This is the Result Area, hide this until search populates (remove "d-none") -->
+            <!-- This is the Result Area, hide this until search populates ) -->
             <main class="col-lg-9">
-                <div class="row ms-5">
-                    <div class="col-lg-11 card" id="weather">
-                        <h3 id="city" class="align-middle">City</h3>
-                        <img id="weatherPix" alt="">
-                        <p id="temperature">example</p>
-                        <p id="wind">example</p>
-                        <p id="humidity">example</p>
-                    </div>
-                
-                    <div class="row ms-5 border-rounded" id="forcast">
-                        <div class="col-12">
-                            <h3>5-Day Weather Forecast</h3>
-                        </div>
-                        <div class="col-md-2 bg-primary text-white m-2 rounded">cast</div>
-                        <div class="col-md-2 bg-primary text-white m-2 rounded">cast</div>
-                        <div class="col-md-2 bg-primary text-white m-2 rounded">cast</div>
-                        <div class="col-md-2 bg-primary text-white m-2 rounded">cast</div>
-                        <div class="col-md-2 bg-primary text-white m-2 rounded">cast</div>
-                        
-                    </div>
-
+                <div class="mt-3" id="weatherToday">
+                </div>
+            
+                <div class="row mt-3 border-rounded" id="forcast">
                 </div>
                 
             </main>
