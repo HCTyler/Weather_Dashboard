@@ -30,11 +30,13 @@ clearButton.addEventListener("click",function(){
 function renderHistory(){
     console.log(searchedCity)
     searchHistory.innerHTML= ""
-    for(var i=searchStored.length - 1; i>=0; i--){
-        const renderedHistory= document.createElement("button")
+
+    for(var i=searchStored.length; i>=0; i--){
+        var renderedHistory= document.createElement("button")
         renderedHistory.setAttribute("type","text")
         renderedHistory.setAttribute("class","form-control d-block bg-white")
         renderedHistory.textContent= searchStored[i]
+        console.log(renderHistory)
         searchHistory.append(renderedHistory)
     }
 }
