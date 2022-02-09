@@ -29,7 +29,7 @@ function renderHistory(){
     }
 }
 function appendSeach(search){
-    if(searchedCity.indexOf(search) !==1){
+    if(searchedCity.indexOf(search) !== 1){
         return
     }
     searchedCity.push(search)
@@ -159,7 +159,6 @@ function renderForecast(dailyForecast,timezone){
     console.log("Is this leading here?, I don't ******* know")
     forcast.append(forecastContainer)
     console.log(dailyForecast.length)
-    console.log(i)
     for (var i= 0; i< dailyForecast.length; i++){
         if(dailyForecast[i].dt >= startDate && dailyForecast[i]< endDate){
         renderCard(dailyForecast[i],timezone)
