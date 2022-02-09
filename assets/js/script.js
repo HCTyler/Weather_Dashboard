@@ -1,4 +1,5 @@
 const APIKey = "6597c239dc318b2df8682f417cd75416"
+var searchedCity=[]
 
 //DOM elements
 var cityInput= document.getElementById("cityInput")
@@ -8,25 +9,17 @@ var clearButton= document.getElementById("clearButton")
 var formInput= document.getElementById("formInput")
 var weatherToday= document.getElementById("weatherToday")
 var forcast= document.getElementById("forcast")
-var cityTitle= document.getElementById("cityTitle")
-var searchedCity=[]
+
 
 dayjs.extend(window.dayjs_plugin_utc);
 dayjs.extend(window.dayjs_plugin_timezone);
 
-function displayPast(){
-    var pastSearched = localStorage.getItem("search-history")
-    if (pastSearched) {
-        searchedCity = JSON.parse(pastSearched)
-    }
-    renderHistory()
-}
 function renderHistory(){
     searchHistory.innerHTML= ""
 
-    for(var i=searchedCity.length -1; i>=0; i--){
+    for (var i = searchedCity.length - 1; i>=0; i--){
         var renderedHistory= document.createElement("button")
-        renderedHistory.setAttribute("type","text")
+        renderedHistory.setAttribute("type","button")
         renderedHistory.setAttribute("aria-control","today forecast")
         renderedHistory.classList.add("history-btn", "btn-history")
         renderedHistory.setAttribute("data-search", searchedCity[i])
@@ -40,9 +33,20 @@ function appendSeach(search){
         return
     }
     searchedCity.push(search)
+
     localStorage.setitem("seach-history",JSON.stringify(searchedCity))
     renderHistory()
 }
+
+function displayPast(){
+    var pastSearched = localStorage.getItem("search-history")
+    if (pastSearched) {
+        searchedCity = JSON.parse(pastSearched)
+    }
+    renderHistory()
+}
+
+
 function renderToday(city, weather,timezone){
     var date= dayjs().tz(timezone).format("M/D/YYYY")
 
@@ -137,6 +141,8 @@ function renderCard(forecast,timezone){
     tempEl.textContent = `Temp: ${tempF} °F`;
     windEl.textContent = `Wind: ${windMph} MPH`;
     humidityEl.textContent = `Humidity: ${humidity} %`;
+    forcast.append(col)
+    console.log("this works?!?!")
 }
 function renderForecast(dailyForecast,timezone){
     var startDate= dayjs().tz(timezone).add(1,"day").startOf("day").unix()
@@ -145,20 +151,25 @@ function renderForecast(dailyForecast,timezone){
     var forecastContainer= document.createElement("div")
     var heading= document.createElement("h4")
     forecastContainer.setAttribute("class","col-12")
-    heading.textContent= "5-Day Forecast"
+    heading.textContent= "8-Day Forecast"
+    console.log("Is this doing to append?! I don't ******* know")
     forecastContainer.append(heading)
 
     forcast.innerHTML= ""
+    console.log("Is this leading here?, I don't ******* know")
     forcast.append(forecastContainer)
+    console.log(dailyForecast.length)
+    console.log(i)
     for (var i= 0; i< dailyForecast.length; i++){
         if(dailyForecast[i].dt >= startDate && dailyForecast[i]< endDate){
-            renderToday(dailyForecast[i],timezone)
+        renderCard(dailyForecast[i],timezone)
         }
+        renderCard(dailyForecast[i],timezone)
     }
 }
 function renderStuff(city,data){
     renderToday(city, data.current, data.timezone)
-    renderCard(data.daily, data.timezone)
+    renderForecast(data.daily, data.timezone)
 }
 function getWeather(location){
     var {lat}= location
@@ -175,7 +186,6 @@ function getWeather(location){
         })
         .catch(function(err){
             console.log(err)
-            console.log(city)
         })
 }
 function getLocation(search){
@@ -221,8 +231,8 @@ displayPast()
 formInput.addEventListener("submit",formEvent)
 searchHistory.addEventListener("click",clickHistory)
 
-// clearButton.addEventListener("click",function(){
-//     localStorage.clear()
-//     searchStored= []
-//     renderHistory()
-// })
+clearButton.addEventListener("click",function(){
+    localStorage.clear()
+    searchStored= []
+    renderHistory()
+})
